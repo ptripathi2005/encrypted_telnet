@@ -10,7 +10,8 @@
 #include "network.h"
 #include "encrypt.h"
 
-void send_cmd(int sock, int pid) {
+void send_cmd(int sock, int pid)
+{	
 	char str[MAX_MSG_LENGTH] = {0};
 	printf(PROMPT_STRING);
 	while (fgets(str, MAX_MSG_LENGTH, stdin) == str) {
@@ -23,7 +24,8 @@ void send_cmd(int sock, int pid) {
 	printf("Goodbye.\n");
 }
 
-void receive(int sock) {
+void receive(int sock) 
+{
 	char buf[MAX_MSG_LENGTH] = {0};
 	int filled = 0;	
 	while((filled = recv(sock, buf, MAX_MSG_LENGTH-1, 0))) {
@@ -34,7 +36,8 @@ void receive(int sock) {
 	printf("Server disconnected.\n");
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
 	int port = 0;
 
 	if (argc != 3) {

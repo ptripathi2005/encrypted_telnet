@@ -11,7 +11,8 @@
 #include "encrypt.h"
 
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
 	int sock;
 	struct sockaddr_in sock_address;
 	char buf[MAX_MSG_LENGTH] = {0};
