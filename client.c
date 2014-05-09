@@ -35,8 +35,13 @@ void receive(int sock) {
 }
 
 int main(int argc, char **argv) {
-	if(argc != 2)
-		errorString("args");
+	int port = 0;
+
+	if (argc != 3) {
+		errorString("Arguments invalid");
+		return -1;
+	}
+	port = atoi(argv[2]);
 
 	int sock = socket(AF_INET, SOCK_STREAM, 0);
 	if(sock == -1)
@@ -49,7 +54,7 @@ int main(int argc, char **argv) {
 	struct sockaddr_in connection;
 	connection.sin_family = AF_INET;
 	memcpy(&connection.sin_addr, &server_addr, sizeof(server_addr));
-	connection.sin_port = htons(PORT);
+	connection.sin_port = htons(port);
 	if (connect(sock, (const struct sockaddr*) &connection, sizeof(connection)) != 0)
 		errorString("connect");
 	

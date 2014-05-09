@@ -1,5 +1,5 @@
-#ifndef __MT_H
-#define __MT_H
+#ifndef __NETWORK_H
+#define __NETWORK_H
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -16,7 +16,6 @@
 
 #include <signal.h>
 
-#define PORT 1111
 #define MAX_MSG_LENGTH 1024
 #define PROMPT_STRING "$>"
 #define END_STRING "bye\n"

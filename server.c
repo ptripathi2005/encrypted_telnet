@@ -11,12 +11,17 @@
 #include "encrypt.h"
 
 
-int main() {
+int main(int argc, char **argv) {
 	int sock;
 	struct sockaddr_in sock_address;
 	char buf[MAX_MSG_LENGTH] = {0};
-	int optval = 1;
+	int optval = 1, port = 0;
 
+	if (argc != 2) {
+		errorString("Port number not specified");
+		return -1;
+	}
+	port = atoi(argv[1]);
 	sock = socket(AF_INET, SOCK_STREAM, 0);
 	if (sock < 0)
 		errorString("opening socket");
@@ -25,7 +30,7 @@ int main() {
 
 	sock_address.sin_family = AF_INET;
 	sock_address.sin_addr.s_addr = INADDR_ANY;
-	sock_address.sin_port = htons(PORT);
+	sock_address.sin_port = htons(port);
 	if(bind(sock, (void*) &sock_address, sizeof(sock_address)))
 		errorString("binding tcp socket");
 	if(listen(sock, 1) == -1)
