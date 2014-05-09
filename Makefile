@@ -1,7 +1,5 @@
 CC=gcc
 CFLAGS=-Wall
-#LIBS=-lmcrypt
-
 LIBS := -lmcrypt
 OS := $(shell uname -s)
 ifeq ($(OS),Linux)
