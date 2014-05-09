@@ -48,9 +48,9 @@ int decrypt(
 }
 
 void display(char* ciphertext, int len){
-  int v;
-  for (v=0; v<len; v++){
-    printf("%d ", ciphertext[v]);
+  int i = 0;
+  for (i = 0; i < len; i++){
+    printf("%d ", ciphertext[i]);
   }
   printf("\n");
 }
@@ -61,12 +61,20 @@ int sym_encrypt(char* buffer,  bool flag)
   char *key = E_KEY;
   int keysize = KEY_LEN;
   int buffer_len = BUFFER_SIZE;
-
-  if (flag == true) {
+#ifdef PRINT_CIPHER
+  printf("====\n");
+#endif
+if (flag == true) {
 	encrypt(buffer, buffer_len, IV, key, keysize); 
+#ifdef PRINT_CIPHER
+  	printf("cipher:  "); display(buffer , buffer_len);
+#endif
   }
   else {
   	decrypt(buffer, buffer_len, IV, key, keysize);
+#ifdef PRINT_CIPHER
+  	printf("decrypt: %s\n", buffer);
+#endif
   }
   return 0;
 }

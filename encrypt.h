@@ -1,5 +1,5 @@
-#ifndef __NETWORK_H
-#define __NETWORK_H
+#ifndef __ENCRYPT_H
+#define __ENCRYPT_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
+#undef PRINT_CIPHER
 
 #define MCRYPT_ENCRYPTION_SCHEME MCRYPT_RIJNDAEL_128
 #define INIT_VECTOR "AAAAAAAAAAAAAAAA" 
