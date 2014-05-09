@@ -8,7 +8,7 @@
  * */
 
 #include "network.h"
-#include "aes.h"
+#include "encrypt.h"
 
 
 int main() {
@@ -58,7 +58,7 @@ int main() {
 				int readc = 0, filled = 0;
 				while(1) {
 					readc = recv(new_socket, buf+filled, MAX_MSG_LENGTH-filled-1, 0);
-					aes_encrypt(buf, false);
+					sym_encrypt(buf, false);
 					if(!readc) 
 						break;
 					filled += readc;

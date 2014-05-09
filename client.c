@@ -8,14 +8,14 @@
  * */
 
 #include "network.h"
-#include "aes.h"
+#include "encrypt.h"
 
 void send_cmd(int sock, int pid) {
 	char str[MAX_MSG_LENGTH] = {0};
 	printf(PROMPT_STRING);
 	while (fgets(str, MAX_MSG_LENGTH, stdin) == str) {
 		if(strncmp(str, END_STRING, strlen(END_STRING)) == 0) break;
-		aes_encrypt(str, true);
+		sym_encrypt(str, true);
 		if(send(sock, str, strlen(str)+1, 0) < 0)
 			errorString("send");
 	}
