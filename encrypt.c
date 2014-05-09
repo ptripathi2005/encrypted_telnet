@@ -3,7 +3,7 @@
  * * @File: encrypt.c
  * * @Brief: This file contains the encrytpion/decrytpion handling.
  * * @Revision History:
- * * 	     OCT-11-2013; Prashant Tripathi; Initial file commit
+ * * 	     May2,2014;  Initial file commit
  * ****************************************************************************
  * */
 
